@@ -45,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //connecting the httl urls to the server
 app.use(routes);
 
+//http://localhost:3001
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Server listening on: http://localhost:' + PORT));
 });

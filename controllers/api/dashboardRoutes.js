@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 })
 
 // need authority to post
+//http://localhost:3001/api/dashboard/
 router.post('/', withAuth, async (req, res) => {
   try {
     const newblog = await Blog.create({
@@ -21,6 +22,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // need authority to delete
+//http://localhost:3001/api/dashboard/:id
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.destroy({
@@ -45,6 +47,15 @@ router.delete('/:id', withAuth, async (req, res) => {
 //put - to update blogs
 
 // Don't need authourity to see peoples post
-//get - to fetch all created 
+// //get - to fetch all created
+// router.get('/login', (req, res) => {
+//   // If the user is already logged in, redirect the request to another route
+//   if (req.session.logged_in) {
+//     res.redirect('/homapage');
+//     return;
+//   }
+
+//   res.render('login');
+// }); 
 
 module.exports = router;
